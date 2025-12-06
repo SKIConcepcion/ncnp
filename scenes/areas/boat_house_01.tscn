@@ -1,0 +1,147 @@
+[gd_scene load_steps=18 format=4 uid="uid://dqghuy4lyu63j"]
+
+[ext_resource type="PackedScene" uid="uid://madl4ilc6xvq" path="res://scenes/player.tscn" id="1_wn5n5"]
+[ext_resource type="Texture2D" uid="uid://ognulrey84wt" path="res://assets/sprites/wood.png" id="2_3jigt"]
+[ext_resource type="Texture2D" uid="uid://dfp1ei3kjunbh" path="res://assets/sprites/lightbulb.png" id="2_8m70c"]
+[ext_resource type="Texture2D" uid="uid://cwou64jvttxmd" path="res://assets/sprites/wood_bg.png" id="3_2padx"]
+[ext_resource type="Texture2D" uid="uid://dhb70cr32fmgm" path="res://assets/sprites/door.png" id="5_3jigt"]
+[ext_resource type="Texture2D" uid="uid://cfbgv05d73x2i" path="res://assets/sprites/wood_box_01.png" id="6_2padx"]
+[ext_resource type="Texture2D" uid="uid://cpoydv4mfuuk5" path="res://assets/sprites/vase_01.png" id="7_afic0"]
+[ext_resource type="Texture2D" uid="uid://cckmmpho2mytb" path="res://assets/sprites/oar.png" id="7_i0whw"]
+[ext_resource type="Script" uid="uid://beodeh8rjs7fe" path="res://scripts/oar.gd" id="8_uad0x"]
+[ext_resource type="PackedScene" uid="uid://xdwyq4yff51f" path="res://scenes/door.tscn" id="9_uad0x"]
+[ext_resource type="PackedScene" uid="uid://dd3lxypp8idwn" path="res://scenes/texts/static_text.tscn" id="11_oc0go"]
+[ext_resource type="PackedScene" uid="uid://krml01h2xbcq" path="res://scenes/texts/pickup_text.tscn" id="12_g1ii0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oc0go"]
+texture = ExtResource("2_8m70c")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_afic0"]
+texture = ExtResource("2_3jigt")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uad0x"]
+texture = ExtResource("3_2padx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8m70c"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_afic0")
+sources/3 = SubResource("TileSetAtlasSource_uad0x")
+sources/0 = SubResource("TileSetAtlasSource_oc0go")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afic0"]
+
+[node name="BoatHouse01" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_wn5n5")]
+position = Vector2(72.6478, 1.59315)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+z_index = 2
+position = Vector2(0, -39)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(535.667, 158.923)
+color = Color(0, 0, 0, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_8m70c")
+format = 2
+
+[node name="back" type="TileMapLayer" parent="TileMap"]
+z_index = -2
+tile_map_data = PackedByteArray("AAD9//3/AwAAAAAAAAD9//7/AwAAAAAAAAD9////AwAAAAAAAAD9/wAAAwAAAAAAAAD9/wEAAwAAAAAAAAD+/wEAAwAAAAAAAAD//wEAAwAAAAAAAAAAAAEAAwAAAAAAAAABAAEAAwAAAAAAAAACAAEAAwAAAAAAAAADAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAAEAAAAAwAAAAAAAAAEAP3/AwAAAAAAAAAEAPz/AwAAAAAAAAADAPz/AwAAAAAAAAACAPz/AwAAAAAAAAABAPz/AwAAAAAAAAAAAPz/AwAAAAAAAAD///z/AwAAAAAAAAD+//z/AwAAAAAAAAD9//z/AwAAAAAAAAD8//z/AwAAAAAAAAD8//v/AwAAAAAAAAD7//v/AwAAAAAAAAD7//z/AwAAAAAAAAD7//3/AwAAAAAAAAD8//3/AwAAAAAAAAD4//r/AwAAAAAAAAD4//v/AwAAAAAAAAD4//z/AwAAAAAAAAD4//3/AwAAAAAAAAD4//7/AwAAAAAAAAD4////AwAAAAAAAAD4/wAAAwAAAAAAAAD4/wEAAwAAAAAAAAD4/wIAAwAAAAAAAAD4/wMAAwAAAAAAAAD5//r/AwAAAAAAAAD5//v/AwAAAAAAAAD5//z/AwAAAAAAAAD5//3/AwAAAAAAAAD5//7/AwAAAAAAAAD5////AwAAAAAAAAD5/wAAAwAAAAAAAAD5/wEAAwAAAAAAAAD5/wIAAwAAAAAAAAD5/wMAAwAAAAAAAAD6//r/AwAAAAAAAAD6//v/AwAAAAAAAAD6//z/AwAAAAAAAAD6//3/AwAAAAAAAAD6//7/AwAAAAAAAAD6////AwAAAAAAAAD6/wAAAwAAAAAAAAD6/wEAAwAAAAAAAAD6/wIAAwAAAAAAAAD6/wMAAwAAAAAAAAD7//r/AwAAAAAAAAD7//7/AwAAAAAAAAD7////AwAAAAAAAAD7/wAAAwAAAAAAAAD7/wEAAwAAAAAAAAD7/wIAAwAAAAAAAAD7/wMAAwAAAAAAAAD8//r/AwAAAAAAAAD8//7/AwAAAAAAAAD8////AwAAAAAAAAD8/wAAAwAAAAAAAAD8/wEAAwAAAAAAAAD8/wIAAwAAAAAAAAD8/wMAAwAAAAAAAAD9//r/AwAAAAAAAAD9//v/AwAAAAAAAAD9/wIAAwAAAAAAAAD9/wMAAwAAAAAAAAD+//r/AwAAAAAAAAD+//v/AwAAAAAAAAD+//3/AwAAAAAAAAD+//7/AwAAAAAAAAD+////AwAAAAAAAAD+/wAAAwAAAAAAAAD+/wIAAwAAAAAAAAD+/wMAAwAAAAAAAAD///r/AwAAAAAAAAD///v/AwAAAAAAAAD///3/AwAAAAAAAAD///7/AgABAAEAAAD/////AgABAAEAAAD//wAAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAAAAPr/AwAAAAAAAAAAAPv/AwAAAAAAAAAAAP3/AwAAAAAAAAAAAP7/AgABAAEAAAAAAP//AgABAAEAAAAAAAAAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAMAAwAAAAAAAAABAPr/AwAAAAAAAAABAPv/AwAAAAAAAAABAP3/AwAAAAAAAAABAP7/AgABAAEAAAABAP//AgABAAEAAAABAAAAAwAAAAAAAAABAAIAAwAAAAAAAAABAAMAAwAAAAAAAAACAPr/AwAAAAAAAAACAPv/AwAAAAAAAAACAP3/AwAAAAAAAAACAP7/AgABAAEAAAACAP//AgABAAEAAAACAAAAAwAAAAAAAAACAAIAAwAAAAAAAAACAAMAAwAAAAAAAAADAPr/AwAAAAAAAAADAPv/AwAAAAAAAAADAP3/AwAAAAAAAAADAAAAAwAAAAAAAAADAAIAAwAAAAAAAAADAAMAAwAAAAAAAAAEAPr/AwAAAAAAAAAEAPv/AwAAAAAAAAAEAAIAAwAAAAAAAAAEAAMAAwAAAAAAAAAFAPr/AwAAAAAAAAAFAPv/AwAAAAAAAAAFAPz/AwAAAAAAAAAFAP3/AwAAAAAAAAAFAP7/AwAAAAAAAAAFAP//AwAAAAAAAAAFAAAAAwAAAAAAAAAFAAEAAwAAAAAAAAAFAAIAAwAAAAAAAAAFAAMAAwAAAAAAAAAGAPr/AwAAAAAAAAAGAPv/AwAAAAAAAAAGAPz/AwAAAAAAAAAGAP3/AwAAAAAAAAAGAP7/AwAAAAAAAAAGAP//AwAAAAAAAAAGAAAAAwAAAAAAAAAGAAEAAwAAAAAAAAAGAAIAAwAAAAAAAAAGAAMAAwAAAAAAAAAHAPr/AwAAAAAAAAAHAPv/AwAAAAAAAAAHAPz/AwAAAAAAAAAHAP3/AwAAAAAAAAAHAP7/AwAAAAAAAAAHAP//AwAAAAAAAAAHAAAAAwAAAAAAAAAHAAEAAwAAAAAAAAAHAAIAAwAAAAAAAAAHAAMAAwAAAAAAAAAIAPv/AwAAAAAAAAAIAPz/AwAAAAAAAAAIAP3/AwAAAAAAAAAIAP7/AwAAAAAAAAAIAP//AwAAAAAAAAAIAAAAAwAAAAAAAAAIAAEAAwAAAAAAAAAIAAIAAwAAAAAAAAAIAAMAAwAAAAAAAAAJAPv/AwAAAAAAAAAJAPz/AwAAAAAAAAAJAP3/AwAAAAAAAAAJAP7/AwAAAAAAAAAJAP//AwAAAAAAAAAJAAAAAwAAAAAAAAAJAAEAAwAAAAAAAAAJAAIAAwAAAAAAAAAJAAMAAwAAAAAAAAAKAPv/AwAAAAAAAAAKAPz/AwAAAAAAAAAKAP3/AwAAAAAAAAAKAP7/AwAAAAAAAAAKAP//AwAAAAAAAAAKAAAAAwAAAAAAAAAKAAEAAwAAAAAAAAAKAAIAAwAAAAAAAAAKAAMAAwAAAAAAAAAIAPr/AwAAAAAAAAAJAPr/AwAAAAAAAAAKAPr/AwAAAAAAAAD2//r/AwAAAAAAAAD2//v/AwAAAAAAAAD2//z/AwAAAAAAAAD2//3/AwAAAAAAAAD2//7/AwAAAAAAAAD2////AwAAAAAAAAD2/wAAAwAAAAAAAAD2/wEAAwAAAAAAAAD2/wIAAwAAAAAAAAD2/wMAAwAAAAAAAAD3//r/AwAAAAAAAAD3//v/AwAAAAAAAAD3//z/AwAAAAAAAAD3//3/AwAAAAAAAAD3//7/AwAAAAAAAAD3////AwAAAAAAAAD3/wAAAwAAAAAAAAD3/wEAAwAAAAAAAAD3/wIAAwAAAAAAAAD3/wMAAwAAAAAAAAD2//j/AwAAAAAAAAD2//n/AwAAAAAAAAD3//j/AwAAAAAAAAD3//n/AwAAAAAAAAD4//j/AwAAAAAAAAD4//n/AwAAAAAAAAD5//j/AwAAAAAAAAD5//n/AwAAAAAAAAD6//j/AwAAAAAAAAD6//n/AwAAAAAAAAD7//j/AwAAAAAAAAD7//n/AwAAAAAAAAD8//j/AwAAAAAAAAD8//n/AwAAAAAAAAD9//j/AwAAAAAAAAD9//n/AwAAAAAAAAD+//j/AwAAAAAAAAD+//n/AwAAAAAAAAD///j/AwAAAAAAAAD///n/AwAAAAAAAAAAAPj/AwAAAAAAAAAAAPn/AwAAAAAAAAABAPj/AwAAAAAAAAABAPn/AwAAAAAAAAACAPj/AwAAAAAAAAACAPn/AwAAAAAAAAADAPj/AwAAAAAAAAADAPn/AwAAAAAAAAAEAPj/AwAAAAAAAAAEAPn/AwAAAAAAAAAFAPj/AwAAAAAAAAAFAPn/AwAAAAAAAAAGAPj/AwAAAAAAAAAGAPn/AwAAAAAAAAAHAPj/AwAAAAAAAAAHAPn/AwAAAAAAAAAIAPj/AwAAAAAAAAAIAPn/AwAAAAAAAAAJAPj/AwAAAAAAAAAJAPn/AwAAAAAAAAAKAPj/AwAAAAAAAAAKAPn/AwAAAAAAAAADAP7/AgABAAEAAAADAP//AgABAAEAAAA=")
+tile_set = SubResource("TileSet_8m70c")
+
+[node name="mid" type="TileMapLayer" parent="TileMap"]
+tile_map_data = PackedByteArray("AAD//wAAAgABAAIAAAAAAAAAAgABAAIAAAABAAAAAgABAAIAAAADAAAAAgACAAIAAAACAAAAAgABAAIAAAD+/wAAAgAAAAIAAAD+////AgAAAAEAAAD+//7/AgAAAAEAAAACAP3/AgABAAAAAAABAP3/AgABAAAAAAAAAP3/AgABAAAAAAD///3/AgABAAAAAAADAP3/AgACAAAAAAD+//3/AgAAAAAAAAAEAP3/AwAAAAAAAAAEAAAAAwAAAAAAAAAEAP7/AwAAAAAAAAAEAP//AwAAAAAAAAADAP7/AgACAAEAAAADAP//AgACAAEAAAA=")
+tile_set = SubResource("TileSet_8m70c")
+
+[node name="front" type="TileMapLayer" parent="TileMap"]
+z_index = 1
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAA=")
+tile_set = SubResource("TileSet_8m70c")
+
+[node name="door" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(70.847, -25.3508)
+scale = Vector2(0.111304, 0.102994)
+texture = ExtResource("5_3jigt")
+
+[node name="wood_box2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(3.63417, -6.34955)
+scale = Vector2(0.0521858, 0.0446843)
+texture = ExtResource("6_2padx")
+
+[node name="wood_box" type="Sprite2D" parent="."]
+position = Vector2(-20.6654, -6.56798)
+scale = Vector2(0.0432307, 0.0432307)
+texture = ExtResource("6_2padx")
+
+[node name="wood_box4" type="Sprite2D" parent="."]
+position = Vector2(36.0553, -6.86326)
+rotation = 3.14159
+scale = Vector2(0.0330121, -0.045108)
+texture = ExtResource("6_2padx")
+
+[node name="wood_box3" type="Sprite2D" parent="."]
+position = Vector2(-13.9013, -18.1453)
+scale = Vector2(0.0465012, 0.0437643)
+texture = ExtResource("6_2padx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.36258, -9.65284)
+scale = Vector2(0.044134, 0.044134)
+texture = ExtResource("7_afic0")
+
+[node name="Oar" type="Area2D" parent="."]
+position = Vector2(-2.19537, -28.3944)
+rotation = -2.8551
+scale = Vector2(1.2, 1.2)
+script = ExtResource("8_uad0x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Oar"]
+z_index = -1
+position = Vector2(0.8522, 0.264984)
+scale = Vector2(0.072387, 0.072387)
+texture = ExtResource("7_i0whw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oar"]
+position = Vector2(0.239807, -0.439041)
+shape = SubResource("CircleShape2D_afic0")
+
+[node name="BoathouseDoorOut" parent="." instance=ExtResource("9_uad0x")]
+position = Vector2(71.4509, -25.9867)
+
+[node name="boathouse_out" parent="." instance=ExtResource("11_oc0go")]
+position = Vector2(83.6305, -19.2415)
+
+[node name="oar" parent="." instance=ExtResource("12_g1ii0")]
+position = Vector2(9.40045, -19.0329)
+
+[connection signal="body_entered" from="Oar" to="Oar" method="_on_body_entered"]
+[connection signal="body_exited" from="Oar" to="Oar" method="_on_body_exited"]

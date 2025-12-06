@@ -1,0 +1,357 @@
+[gd_scene load_steps=36 format=3 uid="uid://madl4ilc6xvq"]
+
+[ext_resource type="Script" uid="uid://1cmmv2q2f7oq" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://cqfppwgrfhnyc" path="res://assets/sprites/characters/player_01.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dsauntvw1ihm2" path="res://assets/sprites/characters/player_04.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dofq01x4w3wlb" path="res://assets/sprites/flashlight.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://c3q8kmdx7qrpe" path="res://assets/sprites/characters/player_07.png" id="6_wnwbv"]
+[ext_resource type="Texture2D" uid="uid://dqql3ewr0vp53" path="res://assets/sprites/characters/player_05.png" id="6_wqfne"]
+[ext_resource type="Texture2D" uid="uid://cuuwwygbeqal8" path="res://assets/sprites/characters/player_08.png" id="7_gl8cc"]
+[ext_resource type="Texture2D" uid="uid://be616sli4y0sk" path="res://assets/sprites/light_02.png" id="7_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://2pobb2n2lwul" path="res://assets/sprites/characters/player_06.png" id="7_wnwbv"]
+[ext_resource type="Texture2D" uid="uid://cckmmpho2mytb" path="res://assets/sprites/oar.png" id="8_3v2ag"]
+[ext_resource type="Texture2D" uid="uid://dvrslh04irqcc" path="res://assets/sprites/cem_key.png" id="8_4r5pv"]
+[ext_resource type="Texture2D" uid="uid://d110r255ibbqu" path="res://assets/sprites/altar_key.png" id="8_60mlk"]
+[ext_resource type="PackedScene" uid="uid://bguxo4gobf2kp" path="res://scenes/film_grain.tscn" id="8_d2wvv"]
+[ext_resource type="Texture2D" uid="uid://cgk38av4utjpj" path="res://assets/sprites/rope.png" id="8_i4ail"]
+[ext_resource type="Texture2D" uid="uid://pog4xq3nw545" path="res://assets/sprites/buttons/left_btn.png" id="9_3v2ag"]
+[ext_resource type="FontFile" uid="uid://b8rdonr213i4n" path="res://assets/fonts/CaviarDreams_Bold.ttf" id="9_fulsm"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="9_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://b0kfr003i8ou8" path="res://assets/sprites/trapdoor_key.png" id="10_4ni07"]
+[ext_resource type="Texture2D" uid="uid://c443cmoqre2fy" path="res://assets/sprites/buttons/right_btn.png" id="10_jej6c"]
+[ext_resource type="Texture2D" uid="uid://bu3l71dwtl745" path="res://assets/sprites/well_cabin_key.png" id="10_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://d4j6c4ts067b3" path="res://assets/sprites/buttons/jump_btn.png" id="11_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://cu72eyr41ra4i" path="res://assets/sprites/lighthouse_key.png" id="11_l71n6"]
+[ext_resource type="Texture2D" uid="uid://cuqujuft4qcmh" path="res://assets/sprites/buttons/drop_btn.png" id="13_a8ls1"]
+[ext_resource type="Texture2D" uid="uid://xq26m8rhsj20" path="res://assets/sprites/buttons/interact_btn.png" id="13_f1ej7"]
+[ext_resource type="Texture2D" uid="uid://w8axemcet6ci" path="res://assets/sprites/buttons/flashlight_btn.png" id="14_qfm1y"]
+[ext_resource type="Texture2D" uid="uid://b758j5xsg8ny" path="res://assets/sprites/unknown_key.png" id="16_wnwbv"]
+[ext_resource type="AudioStream" uid="uid://ce5q67vmgb5k2" path="res://assets/sounds/mixkit-footsteps-in-woods-loop-533.mp3" id="18_fulsm"]
+[ext_resource type="PackedScene" uid="uid://rh5yn0iv6fo" path="res://scenes/enemies/god.tscn" id="22_a38lo"]
+[ext_resource type="Texture2D" uid="uid://cfiix6ywlmw8k" path="res://assets/sprites/pause_menu.png" id="24_ujl30"]
+[ext_resource type="Texture2D" uid="uid://blxl4t4div7l3" path="res://assets/sprites/buttons/pause_btn.png" id="25_31cv2"]
+[ext_resource type="Texture2D" uid="uid://cotmidku80hpr" path="res://assets/sprites/buttons/sprint_btn.png" id="25_pf23h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuyoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlg0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wqfne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wnwbv")
+}],
+"loop": true,
+"name": &"run",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_wnwbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gl8cc")
+}],
+"loop": true,
+"name": &"sprint",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+radius = 4.89638
+height = 31.9824
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fjrip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke2ow"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = -1
+y_sort_enabled = true
+collision_layer = 3
+script = ExtResource("1_g2els")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-0.554, -22.9233)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_tuyoq")
+animation = &"sprint"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0.173498, -17.9427)
+shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="Flashlight" type="Sprite2D" parent="."]
+position = Vector2(-1.5335, -17.7605)
+scale = Vector2(0.0144999, 0.0178896)
+texture = ExtResource("6_fjrip")
+
+[node name="FlashlightRay" type="PointLight2D" parent="."]
+material = SubResource("CanvasItemMaterial_fjrip")
+position = Vector2(5.96046e-08, -24)
+scale = Vector2(0.3, 0.3)
+shadow_enabled = true
+texture = ExtResource("7_qfm1y")
+
+[node name="Rope" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-7.2407, -13.2881)
+rotation = 0.122173
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("8_i4ail")
+
+[node name="AltarKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.91994, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("8_60mlk")
+
+[node name="WellCabinKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.91994, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("10_ke2ow")
+
+[node name="TrapdoorKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.91994, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("10_4ni07")
+
+[node name="LighthouseKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.91994, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("11_l71n6")
+
+[node name="CemKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-6.00853, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("8_4r5pv")
+
+[node name="UnknownKey" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-6.00853, -13.2881)
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("16_wnwbv")
+
+[node name="Oar" type="Sprite2D" parent="."]
+visible = false
+z_as_relative = false
+position = Vector2(10.6852, -35.0316)
+rotation = -2.13279
+scale = Vector2(0.0937562, 0.0937562)
+texture = ExtResource("8_3v2ag")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(192, 150)
+transform = Transform2D(1, 0, 0, 1, 192, 150)
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -192.0
+offset_top = -150.0
+offset_right = 219.0
+offset_bottom = 87.0
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="warning" type="Label" parent="CanvasLayer"]
+offset_left = -181.703
+offset_top = -131.0
+offset_right = -109.703
+offset_bottom = -120.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_fulsm")
+theme_override_font_sizes/font_size = 7
+text = "god's proximity |"
+
+[node name="warning_countdown" type="Label" parent="CanvasLayer/warning" groups=["player"]]
+layout_mode = 0
+offset_left = 59.0
+offset_right = 96.0
+offset_bottom = 11.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_qfm1y")
+theme_override_font_sizes/font_size = 7
+text = "10"
+
+[node name="objective_title" type="Label" parent="CanvasLayer"]
+offset_left = -181.826
+offset_top = -141.274
+offset_right = -63.826
+offset_bottom = -118.274
+theme_override_fonts/font = ExtResource("9_fulsm")
+theme_override_font_sizes/font_size = 7
+text = "objective | "
+
+[node name="objective" type="Label" parent="CanvasLayer/objective_title"]
+layout_mode = 0
+offset_left = 39.7021
+offset_top = -0.405424
+offset_right = 116.702
+offset_bottom = 22.5946
+theme_override_fonts/font = ExtResource("9_qfm1y")
+theme_override_font_sizes/font_size = 7
+text = "go to the other town"
+
+[node name="film_grain" parent="CanvasLayer" instance=ExtResource("8_d2wvv")]
+z_index = 2
+anchors_preset = -1
+anchor_right = 0.429688
+anchor_bottom = 0.503086
+offset_left = -223.0
+offset_top = -148.0
+offset_right = -223.0
+offset_bottom = -148.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-185.961, 12.2271)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("9_3v2ag")
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-120.917, 12.2271)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("10_jej6c")
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(138.427, 12.2271)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("11_f1ej7")
+action = "jump"
+
+[node name="Drop" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(106.087, 34.4222)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("13_a8ls1")
+action = "drop"
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(113.194, 6.49886)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("13_f1ej7")
+action = "interact"
+
+[node name="Flashlight" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(133.78, -13.4337)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("14_qfm1y")
+action = "flashlight"
+
+[node name="Sprint" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(161.635, -23.3378)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("25_pf23h")
+action = "sprint"
+
+[node name="Pause" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(154.777, -141.274)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("25_31cv2")
+action = "pause"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 165.583
+offset_top = -18.2008
+offset_right = 183.583
+offset_bottom = 14.7992
+theme_override_fonts/font = ExtResource("9_qfm1y")
+theme_override_font_sizes/font_size = 12
+text = "10
+"
+horizontal_alignment = 1
+
+[node name="pause_menu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.10461
+offset_top = -67.6804
+offset_right = 36.8954
+offset_bottom = -27.6804
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/pause_menu"]
+position = Vector2(0, 23.2746)
+texture = ExtResource("24_ujl30")
+
+[node name="Resume" type="Button" parent="CanvasLayer/pause_menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.4823
+offset_top = 2.41031
+offset_right = 7.51772
+offset_bottom = 16.4103
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("9_qfm1y")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ke2ow")
+text = "Continue"
+
+[node name="Exit" type="Button" parent="CanvasLayer/pause_menu"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.4823
+offset_top = 21.2643
+offset_right = 7.51772
+offset_bottom = 35.2643
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("9_qfm1y")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ke2ow")
+text = "Exit
+"
+
+[node name="WalkingSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_fulsm")
+volume_db = -10.0
+
+[node name="god" parent="." instance=ExtResource("22_a38lo")]
+position = Vector2(0, 20000)
+rotation = 3.14159
+
+[connection signal="pressed" from="CanvasLayer/pause_menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu/Exit" to="." method="_on_exit_pressed"]

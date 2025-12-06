@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://chfd4j4jvbf41"]
+
+[ext_resource type="Script" uid="uid://exkgjirin5f7" path="res://scenes/screens/endings/ending.gd" id="1_1johm"]
+[ext_resource type="Texture2D" uid="uid://fjs0geyvpjyk" path="res://assets/sprites/endings/bad_ending.png" id="2_3te8s"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_b0arl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1johm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="BadEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1johm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.44634
+offset_top = -4.18905
+offset_right = 402.446
+offset_bottom = 223.811
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("2_3te8s")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.037
+offset_top = -87.0516
+offset_right = 107.963
+offset_bottom = -64.0516
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.215686, 0.215686, 1)
+text = "FORGOTTEN ENDING"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0507
+offset_top = 48.0166
+offset_right = 69.9493
+offset_bottom = 68.0166
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 9
+text = "2 out of 4 Endings"
+horizontal_alignment = 1
+
+[node name="SubLabel2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.895
+offset_top = -38.7919
+offset_right = 119.105
+offset_bottom = 0.208054
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 9
+text = "You dove into the ocean’s embrace…
+your anxiety, pain, and sorrow drifting with the tide,
+while the truth waits, buried deep beneath the surface."
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.7321
+offset_top = 11.3056
+offset_right = 29.2679
+offset_bottom = 35.3056
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_b0arl")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_1johm")
+text = "Continue"
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_continue_pressed"]

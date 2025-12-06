@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://08gixxyrixpt"]
+
+[ext_resource type="Texture2D" uid="uid://o1j12xmbvbuk" path="res://assets/sprites/small_wood_plat.png" id="1_1lboj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3e3o"]
+size = Vector2(16.2992, 4.11717)
+
+[node name="small_wood_plat" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.03)
+texture = ExtResource("1_1lboj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.207014, -0.142234)
+shape = SubResource("RectangleShape2D_l3e3o")
+one_way_collision = true

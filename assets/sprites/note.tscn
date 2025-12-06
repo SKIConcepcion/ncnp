@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvllnrr717v47"]
+
+[ext_resource type="Script" uid="uid://dldnkngtf12ad" path="res://scripts/note.gd" id="1_t8tce"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_ylc53"]
+[ext_resource type="Texture2D" uid="uid://bwbyrn71u81f0" path="res://assets/sprites/note.png" id="3_qw5au"]
+[ext_resource type="Texture2D" uid="uid://b8cq8sxla8l50" path="res://assets/sprites/map.png" id="4_mo00h"]
+[ext_resource type="Texture2D" uid="uid://n7gvgawg8n5v" path="res://assets/sprites/well_riddle.png" id="5_820dy"]
+[ext_resource type="Texture2D" uid="uid://toij8qap08l" path="res://assets/sprites/bib.png" id="6_igmj2"]
+[ext_resource type="PackedScene" uid="uid://dd3lxypp8idwn" path="res://scenes/texts/static_text.tscn" id="7_gjbwa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqe2p"]
+size = Vector2(39.2677, 16)
+
+[node name="note" type="Node2D"]
+z_index = 3
+script = ExtResource("1_t8tce")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -256.0
+offset_top = -192.0
+offset_right = 256.0
+offset_bottom = 192.0
+color = Color(0, 0, 0, 0.470588)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 7
+offset_left = -32.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = 6.0
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 2
+theme_override_fonts/font = ExtResource("2_ylc53")
+theme_override_font_sizes/font_size = 7
+text = "lorem ipsum lorem ipsum  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum "
+autowrap_mode = 3
+
+[node name="NoteSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(2.98023e-08, -24)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("3_qw5au")
+
+[node name="MapSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mo00h")
+
+[node name="RiddleSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(0, -32)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_820dy")
+
+[node name="BibSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(2.98023e-08, -24)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("6_igmj2")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.257956, 0)
+shape = SubResource("RectangleShape2D_nqe2p")
+
+[node name="read_note" parent="." instance=ExtResource("7_gjbwa")]
+position = Vector2(11.759, -18.3741)
+
+[node name="view_map" parent="." instance=ExtResource("7_gjbwa")]
+visible = false
+position = Vector2(11.759, -18.3741)
+
+[node name="view_riddle" parent="." instance=ExtResource("7_gjbwa")]
+visible = false
+position = Vector2(11.759, -18.3741)

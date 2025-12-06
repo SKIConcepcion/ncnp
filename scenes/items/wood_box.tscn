@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://mdbtwx7ha0sj"]
+
+[ext_resource type="Texture2D" uid="uid://cga0pm3ekf56s" path="res://assets/sprites/wood_box.png" id="1_msmh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw326"]
+size = Vector2(33.0589, 4.3286)
+
+[node name="wood_box" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-0.0330963, 0.0183125)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("1_msmh3")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.00742626, -5.28716)
+shape = SubResource("RectangleShape2D_bw326")
+one_way_collision = true

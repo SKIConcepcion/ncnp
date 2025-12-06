@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dag2n0dgeghqi"]
+
+[ext_resource type="Script" uid="uid://dmstoevathiyt" path="res://scripts/god_boss.gd" id="1_setaa"]
+[ext_resource type="Texture2D" uid="uid://bor2kepoegc44" path="res://assets/sprites/god.png" id="2_wn6qn"]
+[ext_resource type="Texture2D" uid="uid://cvrblioltsfum" path="res://assets/sprites/god_02.png" id="3_gjqlt"]
+[ext_resource type="Texture2D" uid="uid://dxr54vgnhegr4" path="res://assets/sprites/god_03.png" id="4_setaa"]
+[ext_resource type="PackedScene" uid="uid://cfw6sbbgff5nl" path="res://scenes/killzone.tscn" id="5_wesky"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2yeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wn6qn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gjqlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_setaa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6ndx"]
+radius = 88.0
+height = 176.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bkiqi"]
+radius = 80.0
+
+[node name="god_boss" type="CharacterBody2D"]
+position = Vector2(0, -32)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_setaa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 32)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_a2yeo")
+autoplay = "default"
+frame_progress = 0.937019
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -80)
+shape = SubResource("CapsuleShape2D_u6ndx")
+
+[node name="Killzone" parent="." instance=ExtResource("5_wesky")]
+position = Vector2(0.335037, -0.111677)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" groups=["god"]]
+z_index = 5
+position = Vector2(2.214, -66.4374)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_bkiqi")

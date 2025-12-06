@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://71j4paxkhvqt"]
+
+[ext_resource type="Script" uid="uid://h3dbwb8dhyw" path="res://scripts/screen_trans.gd" id="1_wyqyg"]
+
+[sub_resource type="Animation" id="Animation_0q6ma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ydmyu"]
+resource_name = "dissolve"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(0.215686, 0.215686, 0.215686, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrjx3"]
+_data = {
+&"RESET": SubResource("Animation_0q6ma"),
+&"dissolve": SubResource("Animation_ydmyu")
+}
+
+[node name="screen_over" type="CanvasLayer"]
+script = ExtResource("1_wyqyg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.299
+anchor_top = 0.333
+anchor_right = 0.299
+anchor_bottom = 0.333
+offset_left = -344.448
+offset_top = -215.784
+offset_right = 399.552
+offset_bottom = 144.216
+mouse_filter = 2
+color = Color(1, 0.407843, 0.337255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jrjx3")
+}

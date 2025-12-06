@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=3 uid="uid://mmcp4j5dyeen"]
+
+[ext_resource type="Script" uid="uid://exkgjirin5f7" path="res://scenes/screens/endings/ending.gd" id="1_r0mxr"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_t4nug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0mxr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="BetaEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r0mxr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 5.44634
+offset_top = -4.18905
+offset_right = 402.446
+offset_bottom = 223.811
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.5
+offset_top = -73.0
+offset_right = 105.5
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.215686, 0.215686, 1)
+text = "DEATH ENDING"
+horizontal_alignment = 1
+
+[node name="SubLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.4998
+offset_top = -49.7371
+offset_right = 68.5002
+offset_bottom = -29.7371
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 9
+text = "2 out of 4 Endings"
+horizontal_alignment = 1
+
+[node name="SubLabel2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.6812
+offset_top = -3.17646
+offset_right = 80.3188
+offset_bottom = 16.8235
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 9
+text = "You dove into the ocean’s embrace…
+your anxiety, pain, and sorrow drifting with the tide,
+while the truth waits, buried deep beneath the surface."
+horizontal_alignment = 1
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -35.1854
+offset_top = -66.3587
+offset_right = 28.8146
+offset_bottom = -42.3587
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_t4nug")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_r0mxr")
+text = "Continue"

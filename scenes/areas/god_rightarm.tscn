@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://beok14h3xaia4"]
+
+[ext_resource type="Script" uid="uid://bxp5cn7ueoawv" path="res://scripts/god_rightarm.gd" id="1_bs4km"]
+[ext_resource type="Texture2D" uid="uid://cpny8byw5ij40" path="res://assets/sprites/god_rightarm.png" id="2_duupy"]
+[ext_resource type="PackedScene" uid="uid://cfw6sbbgff5nl" path="res://scenes/killzone.tscn" id="4_y8fao"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3o5n"]
+size = Vector2(88, 736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvrhm"]
+size = Vector2(208, 576)
+
+[node name="god_rightarm" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 128
+collision_mask = 128
+script = ExtResource("1_bs4km")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_duupy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -8)
+shape = SubResource("RectangleShape2D_i3o5n")
+
+[node name="Killzone" parent="." instance=ExtResource("4_y8fao")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" groups=["god"]]
+z_index = 5
+position = Vector2(-4, 208)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hvrhm")

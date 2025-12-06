@@ -1,0 +1,341 @@
+[gd_scene load_steps=20 format=3 uid="uid://bfl5ys6fqk2q4"]
+
+[ext_resource type="Script" uid="uid://yw04ff534myj" path="res://scripts/control_screen.gd" id="1_lhc2q"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_krl6a"]
+[ext_resource type="Texture2D" uid="uid://pog4xq3nw545" path="res://assets/sprites/buttons/left_btn.png" id="5_vjk7k"]
+[ext_resource type="Texture2D" uid="uid://c443cmoqre2fy" path="res://assets/sprites/buttons/right_btn.png" id="6_lhc2q"]
+[ext_resource type="Texture2D" uid="uid://d4j6c4ts067b3" path="res://assets/sprites/buttons/jump_btn.png" id="7_x7a6p"]
+[ext_resource type="Texture2D" uid="uid://cuqujuft4qcmh" path="res://assets/sprites/buttons/drop_btn.png" id="8_68kbs"]
+[ext_resource type="Texture2D" uid="uid://cqfppwgrfhnyc" path="res://assets/sprites/characters/player_01.png" id="9_vjk7k"]
+[ext_resource type="Texture2D" uid="uid://xq26m8rhsj20" path="res://assets/sprites/buttons/interact_btn.png" id="9_yvgi5"]
+[ext_resource type="Texture2D" uid="uid://dsauntvw1ihm2" path="res://assets/sprites/characters/player_04.png" id="10_lhc2q"]
+[ext_resource type="Texture2D" uid="uid://w8axemcet6ci" path="res://assets/sprites/buttons/flashlight_btn.png" id="10_vxslf"]
+[ext_resource type="Texture2D" uid="uid://cotmidku80hpr" path="res://assets/sprites/buttons/sprint_btn.png" id="10_x7a6p"]
+[ext_resource type="Texture2D" uid="uid://b00u17o3y681d" path="res://assets/sprites/characters/player_02.png" id="11_x7a6p"]
+[ext_resource type="Texture2D" uid="uid://c2mfpijhrl7dt" path="res://assets/sprites/characters/player_03.png" id="12_68kbs"]
+[ext_resource type="Texture2D" uid="uid://veq7t7ioe4x3" path="res://control_screen.png" id="13_lhc2q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yvgi5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vjk7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lhc2q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vjk7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x7a6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_68kbs")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_lhc2q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lhc2q"]
+gradient = SubResource("Gradient_lhc2q")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7a6p"]
+texture = SubResource("GradientTexture1D_lhc2q")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhc2q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="ControlScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhc2q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(196.635, 103.691)
+scale = Vector2(1.37068, 1.21164)
+texture = ExtResource("13_lhc2q")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0313
+offset_top = 144.229
+offset_right = 58.0313
+offset_bottom = 155.229
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "move left"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 80.761
+offset_top = 144.229
+offset_right = 123.761
+offset_bottom = 155.229
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "move right"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.973
+offset_top = 100.017
+offset_right = 390.973
+offset_bottom = 133.017
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "sprint
+(16s cd)"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 292.994
+offset_top = 115.857
+offset_right = 335.994
+offset_bottom = 137.857
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "toggle
+flashlight"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 267.312
+offset_top = 158.372
+offset_right = 313.312
+offset_bottom = 180.372
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "interact
+"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="."]
+layout_mode = 0
+offset_left = 262.098
+offset_top = 181.588
+offset_right = 308.098
+offset_bottom = 203.588
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "drop
+down"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 340.353
+offset_top = 157.711
+offset_right = 383.353
+offset_bottom = 179.711
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "jump"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="."]
+layout_mode = 0
+offset_left = 71.4363
+offset_top = 88.7271
+offset_right = 327.436
+offset_bottom = 110.727
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "you can also hide behind large objects, just make sure that no part is visible during your hiding..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="."]
+layout_mode = 0
+offset_left = 71.4363
+offset_top = 118.329
+offset_right = 327.436
+offset_bottom = 130.329
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 9
+text = "tip: praying delays the impending doom "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(192, 150)
+transform = Transform2D(1, 0, 0, 1, 192, 150)
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-185.961, 12.2271)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("5_vjk7k")
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(-120.917, 12.2271)
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("6_lhc2q")
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(144.604, 22.9176)
+scale = Vector2(0.0764213, 0.0764213)
+texture_normal = ExtResource("7_x7a6p")
+action = "jump"
+
+[node name="Drop" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(106.087, 34.4222)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("8_68kbs")
+action = "drop"
+
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(113.194, 6.49886)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("9_yvgi5")
+action = "interact"
+
+[node name="Flashlight" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(133.78, -13.4337)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("10_vxslf")
+action = "flashlight"
+
+[node name="Sprint" type="TouchScreenButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.588235)
+position = Vector2(160.148, -19.4059)
+scale = Vector2(0.05, 0.05)
+texture_normal = ExtResource("10_x7a6p")
+action = "sprint"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(68.7762, 59.6094)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_yvgi5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(120.336, 58.4508)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_yvgi5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(188.276, 57.3975)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_yvgi5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(257.005, 59.5041)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_yvgi5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(315.633, 59.5041)
+scale = Vector2(0.0905579, 0.0905579)
+sprite_frames = SubResource("SpriteFrames_yvgi5")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -3
+layout_mode = 0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = 400.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_x7a6p")
+
+[node name="Continue" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.3585
+offset_top = 42.734
+offset_right = 35.6415
+offset_bottom = 56.734
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhc2q")
+text = "Continue"
+
+[node name="Back" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.3585
+offset_top = 61.588
+offset_right = 35.6415
+offset_bottom = 75.588
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_krl6a")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhc2q")
+text = "Back"
+
+[connection signal="pressed" from="Panel/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]

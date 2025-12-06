@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://blfhn0p2hh4jx"]
+
+[ext_resource type="Script" uid="uid://newhpda22tem" path="res://scripts/pause_menu.gd" id="1_pbepp"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="1_rpmok"]
+[ext_resource type="Texture2D" uid="uid://cfiix6ywlmw8k" path="res://assets/sprites/pause_menu.png" id="2_5dx7k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhvur"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
+z_index = 20
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pbepp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(616.508, 354.854)
+scale = Vector2(5.63698, 2.23418)
+texture = ExtResource("2_5dx7k")
+
+[node name="Resume" type="Button" parent="."]
+process_mode = 3
+z_index = 12
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.4924
+offset_top = 12.0
+offset_right = 40.5076
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("1_rpmok")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhvur")
+text = "Continue"
+
+[node name="Exit" type="Button" parent="."]
+process_mode = 3
+z_index = 12
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.4924
+offset_top = 30.854
+offset_right = 40.5076
+offset_bottom = 44.854
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("1_rpmok")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_lhvur")
+text = "Exit
+"
+
+[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

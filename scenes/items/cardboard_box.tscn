@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkkv1yeqhy1pm"]
+
+[ext_resource type="Texture2D" uid="uid://cxd1h43d1m4wi" path="res://assets/sprites/cardboard_box.png" id="1_ljayw"]
+
+[node name="cardboard_box" type="Sprite2D"]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("1_ljayw")

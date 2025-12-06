@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2t0xkggsmk4d"]
+
+[ext_resource type="Script" uid="uid://exkgjirin5f7" path="res://scenes/screens/endings/ending.gd" id="1_yg8x5"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_wlpui"]
+[ext_resource type="Texture2D" uid="uid://cal3s7we7neln" path="res://assets/sprites/endings/village_ending.png" id="2_xgvpq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uddy1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="VillageEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yg8x5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.44634
+offset_top = -4.18905
+offset_right = 402.446
+offset_bottom = 223.811
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("2_xgvpq")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.145
+offset_top = -97.7892
+offset_right = 86.8545
+offset_bottom = -74.7892
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.215686, 0.215686, 1)
+text = "YOU WON ENDING"
+
+[node name="SubLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.548
+offset_top = -78.5009
+offset_right = 11.4515
+offset_bottom = -58.5009
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 9
+text = "4 out of 4 Endings"
+
+[node name="SubLabel2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.548
+offset_top = -54.5009
+offset_right = 34.4515
+offset_bottom = -34.5009
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 9
+text = "You \"won\" the election, congrats..."
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.548
+offset_top = -151.977
+offset_right = -70.5485
+offset_bottom = -127.977
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_wlpui")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_uddy1")
+text = "Continue"
+alignment = 0
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_continue_pressed"]

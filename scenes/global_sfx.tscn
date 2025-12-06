@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://b22607av455hi"]
+
+[ext_resource type="AudioStream" uid="uid://b6kbs4v3jsbdx" path="res://assets/sounds/dorm-door-opening-6038.mp3" id="1_776yn"]
+[ext_resource type="Script" uid="uid://ddratc6f2ss4d" path="res://scripts/global_sfx.gd" id="1_lgu8u"]
+[ext_resource type="AudioStream" uid="uid://xixda5nrchvt" path="res://assets/sounds/flashlight-switch-102792.mp3" id="3_5osk8"]
+[ext_resource type="AudioStream" uid="uid://v2th6sqka7gs" path="res://assets/sounds/mixkit-prison-metal-door-close-201.wav" id="3_l6svp"]
+[ext_resource type="AudioStream" uid="uid://djdvipk7nkgqa" path="res://assets/sounds/item-pickup-37089.mp3" id="4_cdq3m"]
+[ext_resource type="AudioStream" uid="uid://bi877vrem8eob" path="res://assets/sounds/flip-page-105778.mp3" id="5_uxr5k"]
+[ext_resource type="AudioStream" uid="uid://drma6dm53bglp" path="res://assets/sounds/whisper-trail-1-105420.mp3" id="6_x4g66"]
+[ext_resource type="AudioStream" uid="uid://bpt8wibpa1qo1" path="res://assets/sounds/late-jazz-piano-26155.mp3" id="7_0l4wi"]
+[ext_resource type="AudioStream" uid="uid://m5hpto0yihmr" path="res://assets/sounds/mixkit-writing-with-a-pen-on-paper-2367.wav" id="8_iaaci"]
+[ext_resource type="AudioStream" uid="uid://d4pm7x3ysiq7" path="res://assets/sounds/reversed-jazz.mp3" id="10_8r0ul"]
+[ext_resource type="AudioStream" uid="uid://btt8dtjphc0t6" path="res://assets/sounds/cathedral-organ-64646.mp3" id="11_dx25e"]
+[ext_resource type="AudioStream" uid="uid://bi6h0dpeox33g" path="res://assets/sounds/dreadful-prayer-2-104037.mp3" id="11_lsi6b"]
+
+[node name="GlobalSfx" type="Node"]
+script = ExtResource("1_lgu8u")
+
+[node name="DoorSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_776yn")
+volume_db = -10.0
+pitch_scale = 1.5
+
+[node name="GateSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l6svp")
+volume_db = -10.0
+
+[node name="FlashlightSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_5osk8")
+volume_db = -2.0
+
+[node name="PickupSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cdq3m")
+volume_db = -10.0
+
+[node name="PaperSfx" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("5_uxr5k")
+volume_db = -5.0
+
+[node name="PrayerSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_x4g66")
+
+[node name="JazzMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0l4wi")
+pitch_scale = 0.9
+
+[node name="PencilSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_iaaci")
+
+[node name="BigDoorSfx" type="AudioStreamPlayer" parent="."]
+
+[node name="GodSfx01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_8r0ul")
+volume_db = 2.0
+pitch_scale = 0.9
+stream_paused = true
+
+[node name="OrganSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_dx25e")
+volume_db = -2.0
+pitch_scale = 0.8
+
+[node name="GodSfx02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lsi6b")
+volume_db = -2.0
+pitch_scale = 0.8
+stream_paused = true

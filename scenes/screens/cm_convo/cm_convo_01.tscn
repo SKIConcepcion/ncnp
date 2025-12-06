@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjiskg6e0bshu"]
+
+[ext_resource type="Script" uid="uid://w5jcwqxn0ecj" path="res://scenes/screens/cm_convo/cm_convo_01.gd" id="1_uyftb"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_23d4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyftb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_aohfb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_exq1r"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n7eap"]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.02, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g853r"]
+_data = {
+&"RESET": SubResource("Animation_aohfb"),
+&"hide": SubResource("Animation_exq1r"),
+&"show": SubResource("Animation_n7eap")
+}
+
+[node name="CmConvo01" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uyftb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.44634
+offset_top = -4.18905
+offset_right = 402.446
+offset_bottom = 223.811
+color = Color(0, 0, 0, 1)
+
+[node name="Option_01" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.5
+offset_top = 26.0
+offset_right = -51.4998
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_23d4p")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyftb")
+text = "Pale glow… is he
+talking about the moon?"
+
+[node name="Option_02" type="Button" parent="ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 17.5002
+offset_top = 26.0
+offset_right = 154.5
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_23d4p")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_uyftb")
+text = "Descend where?"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.602
+offset_top = -39.8554
+offset_right = 149.398
+offset_bottom = -25.8554
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("2_23d4p")
+theme_override_font_sizes/font_size = 9
+text = "\"Earlier, the fisherman that lent me the boat said that: 
+'When the pale glow lingers, descend without question'
+...but what does he mean by it?\""
+horizontal_alignment = 1
+autowrap_mode = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g853r")
+}
+
+[connection signal="pressed" from="ColorRect/Option_01" to="." method="_on_option_01_pressed"]
+[connection signal="pressed" from="ColorRect/Option_02" to="." method="_on_option_02_pressed"]

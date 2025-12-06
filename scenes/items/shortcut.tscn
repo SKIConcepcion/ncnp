@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcgg5rqmyb8oj"]
+
+[ext_resource type="Script" uid="uid://craqfh652krl1" path="res://scripts/shortcut.gd" id="1_vf7ow"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kug7y"]
+radius = 27.0
+
+[node name="Shortcut" type="Area2D" groups=["player"]]
+script = ExtResource("1_vf7ow")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kug7y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

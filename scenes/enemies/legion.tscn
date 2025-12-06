@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7b46pj7an24i"]
+
+[ext_resource type="Script" uid="uid://da4l32hhi1b01" path="res://scripts/legion.gd" id="1_65dy1"]
+[ext_resource type="Texture2D" uid="uid://80prr5lreu3o" path="res://assets/sprites/legion_01.png" id="2_lj60q"]
+[ext_resource type="Texture2D" uid="uid://c00i3vaaj0n4v" path="res://assets/sprites/legion_02.png" id="3_yj62e"]
+[ext_resource type="Texture2D" uid="uid://c4hnkdka7k8f7" path="res://assets/sprites/legion_03.png" id="4_jk0qm"]
+[ext_resource type="Texture2D" uid="uid://dhfpnna8b5sw0" path="res://assets/sprites/legion_04.png" id="5_rrmrq"]
+[ext_resource type="PackedScene" uid="uid://cfw6sbbgff5nl" path="res://scenes/killzone.tscn" id="6_8bwau"]
+[ext_resource type="AudioStream" uid="uid://3880heqqnep7" path="res://assets/sounds/monster_growl.mp3" id="7_6m1po"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eqg6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lj60q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yj62e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jk0qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rrmrq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nenq2"]
+size = Vector2(60.8056, 50.3986)
+
+[node name="legion" type="Node2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_65dy1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7.62939e-06, -0.108999)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_eqg6u")
+autoplay = "default"
+frame_progress = 0.93917
+flip_h = true
+
+[node name="Killzone" parent="." instance=ExtResource("6_8bwau")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(5.0858, 10.3676)
+shape = SubResource("RectangleShape2D_nenq2")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(37.3333, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-26.4029, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6m1po")
+pitch_scale = 1.5
+autoplay = true
+max_distance = 350.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6m1po")
+pitch_scale = 2.54
+autoplay = true
+max_distance = 350.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6m1po")
+pitch_scale = 3.05
+autoplay = true
+max_distance = 350.0

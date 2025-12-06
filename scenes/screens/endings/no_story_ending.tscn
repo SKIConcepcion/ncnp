@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4mdhxwgt1ofs"]
+
+[ext_resource type="Script" uid="uid://exkgjirin5f7" path="res://scenes/screens/endings/ending.gd" id="1_rfj2a"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="2_uddy1"]
+[ext_resource type="Texture2D" uid="uid://cg0qq4lrbaov0" path="res://assets/sprites/endings/no_story_ending.png" id="2_v4ab8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfj2a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="NoStoryEnding" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfj2a")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 5.44634
+offset_top = -4.18905
+offset_right = 402.446
+offset_bottom = 223.811
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 0
+offset_right = 384.0
+offset_bottom = 216.0
+texture = ExtResource("2_v4ab8")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.548
+offset_top = -87.2725
+offset_right = 100.452
+offset_bottom = -64.2725
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.215686, 0.215686, 1)
+text = "NOR HEADLINE, NOR STORY ENDING"
+
+[node name="SubLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.548
+offset_top = -66.6664
+offset_right = -36.5485
+offset_bottom = -46.6664
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_font_sizes/font_size = 9
+text = "1 out of 4 Endings"
+
+[node name="SubLabel2" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -182.548
+offset_top = -46.6664
+offset_right = 26.4515
+offset_bottom = -20.6664
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 9
+text = "You did the most logical action in a horror story:
+You turned back and went home"
+
+[node name="Continue" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -182.548
+offset_top = -112.703
+offset_right = -118.548
+offset_bottom = -88.7032
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("2_uddy1")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_rfj2a")
+text = "Continue"
+alignment = 0
+
+[connection signal="pressed" from="ColorRect/Continue" to="." method="_on_continue_pressed"]

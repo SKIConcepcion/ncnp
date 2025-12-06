@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bflybk1u6fqwj"]
+
+[ext_resource type="Script" uid="uid://csaw0svl0vbct" path="res://scripts/end_screen.gd" id="1_e2sy2"]
+[ext_resource type="Texture2D" uid="uid://662ngd4ppd04" path="res://assets/sprites/newspaper_02.png" id="2_5lwgp"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="3_pms7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o7i0r"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2sy2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e2sy2")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o7i0r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_5lwgp")
+
+[node name="Continue" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("3_pms7j")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_e2sy2")
+text = "Continue"
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 23.9483
+offset_top = 11.7327
+offset_right = 133.948
+offset_bottom = 34.7327
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+text = "May 31, 2025"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]

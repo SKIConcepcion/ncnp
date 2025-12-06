@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://3xd6oy3sf7bl"]
+
+[ext_resource type="Texture2D" uid="uid://iu2727e7lghk" path="res://assets/sprites/characters/und_skein_01.png" id="1_lickc"]
+[ext_resource type="Texture2D" uid="uid://d07nn7mr8wird" path="res://assets/sprites/characters/und_skein_02.png" id="2_7pv1c"]
+[ext_resource type="PackedScene" uid="uid://cfw6sbbgff5nl" path="res://scenes/killzone.tscn" id="3_fbeh0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lickc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lickc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7pv1c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkw70"]
+size = Vector2(8.61937, 22.5985)
+
+[node name="Und_Skein" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+sprite_frames = SubResource("SpriteFrames_lickc")
+autoplay = "default"
+frame_progress = 0.929839
+
+[node name="Killzone" parent="." instance=ExtResource("3_fbeh0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(0.680077, 3.29925)
+shape = SubResource("RectangleShape2D_rkw70")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-8, 0)

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://degj4m2nx6kxn"]
+
+[ext_resource type="Script" uid="uid://d157meyehjkvc" path="res://scripts/cart.gd" id="1_cw8ly"]
+[ext_resource type="Texture2D" uid="uid://b0rdyjjl3h841" path="res://assets/sprites/wagon_01.png" id="2_qbcht"]
+[ext_resource type="Texture2D" uid="uid://bqpvh0vya7cbq" path="res://assets/sprites/wagon_02.png" id="3_k4oki"]
+[ext_resource type="AudioStream" uid="uid://6h6gyyxrucq0" path="res://assets/sounds/rolling-cart-002-86702.mp3" id="4_k4oki"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aru4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qbcht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_k4oki")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4oki"]
+size = Vector2(57.3818, 28.9155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw8ly"]
+size = Vector2(3.68538, 26.5794)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbcht"]
+size = Vector2(3.23867, 26.3)
+
+[node name="Cart" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 9
+script = ExtResource("1_cw8ly")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(24.5089, -24.5089)
+scale = Vector2(0.138099, 0.138099)
+sprite_frames = SubResource("SpriteFrames_aru4u")
+frame = 1
+frame_progress = 0.633014
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24.6286, -4.66845)
+shape = SubResource("RectangleShape2D_k4oki")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k4oki")
+
+[node name="left" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="left"]
+position = Vector2(-5.19086, -4.70986)
+shape = SubResource("RectangleShape2D_cw8ly")
+
+[node name="right" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="right"]
+position = Vector2(54.2219, -4.73785)
+shape = SubResource("RectangleShape2D_qbcht")
+
+[connection signal="body_entered" from="left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="left" to="." method="_on_left_body_exited"]
+[connection signal="body_entered" from="right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="right" to="." method="_on_right_body_exited"]

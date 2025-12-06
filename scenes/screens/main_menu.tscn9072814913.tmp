@@ -1,0 +1,162 @@
+[gd_scene load_steps=9 format=3 uid="uid://momhei5iyumb"]
+
+[ext_resource type="Script" uid="uid://cwxcobdnyum7w" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="FontFile" uid="uid://eprtksalj3br" path="res://assets/fonts/CaviarDreams.ttf" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://3roscw85nwga" path="res://scenes/screens/screen_trans.tscn" id="5_8ln24"]
+[ext_resource type="Texture2D" uid="uid://ca7xpm1iecjjj" path="res://app_logo_2.png" id="5_rtw2f"]
+
+[sub_resource type="Gradient" id="Gradient_rtw2f"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kr80i"]
+gradient = SubResource("Gradient_rtw2f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bqqt6"]
+texture = SubResource("GradientTexture1D_kr80i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.39764
+offset_top = 3.85542
+offset_right = -5.39771
+offset_bottom = 3.85541
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -3
+layout_mode = 0
+offset_left = 3.0
+offset_top = -8.0
+offset_right = 400.0
+offset_bottom = 220.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bqqt6")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 246.766
+offset_top = 88.9768
+offset_right = 337.766
+offset_bottom = 128.977
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("4_wu84c")
+text = "nor         ,
+nor pain"
+
+[node name="Label2" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = 27.2808
+offset_right = 210.281
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.999878, 0.407376, 0.338788, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+text = "crying"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.1127
+offset_top = 8.05785
+offset_right = 135.113
+offset_bottom = 27.0579
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 6
+text = "made by sean concepcion
+version 0.9.12-beta"
+
+[node name="TimeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 301.398
+offset_top = 132.145
+offset_right = 419.398
+offset_bottom = 151.145
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 6
+
+[node name="DifficultyLabel" type="Control" parent="TimeLabel"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.4794
+offset_top = 51.1668
+offset_right = 37.5206
+offset_bottom = 65.1668
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "start game"
+alignment = 2
+
+[node name="Credit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.4794
+offset_top = 66.914
+offset_right = 37.5206
+offset_bottom = 77.914
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "credits
+"
+alignment = 2
+
+[node name="Exit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.4794
+offset_top = 79.6707
+offset_right = 37.5206
+offset_bottom = 90.6707
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.215686, 0.215686, 0.215686, 1)
+theme_override_fonts/font = ExtResource("4_wu84c")
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekxnf")
+text = "exit"
+alignment = 2
+
+[node name="screen_trans" parent="." instance=ExtResource("5_8ln24")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(196.635, 104.28)
+scale = Vector2(1.37068, 1.21164)
+texture = ExtResource("5_rtw2f")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

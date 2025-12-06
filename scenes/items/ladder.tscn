@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://053k8noguwok"]
+
+[ext_resource type="Texture2D" uid="uid://bytevil6bs45e" path="res://assets/sprites/ladder.png" id="1_etutm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrkbu"]
+size = Vector2(49.2461, 6.30196)
+
+[node name="Ladder" type="StaticBody2D"]
+position = Vector2(-1.50262, 1.50264)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.50261, -1.50266)
+scale = Vector2(0.407332, 0.407332)
+texture = ExtResource("1_etutm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13.7314, 18.5189)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-13.4414, 47.2122)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-9.87433, -75.5026)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-13.1952, -12.4771)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-12.4256, -41.9379)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(-12.1105, 79.0401)
+shape = SubResource("RectangleShape2D_jrkbu")
+one_way_collision = true
