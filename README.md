@@ -1,4 +1,4 @@
-# Nor Crying, Nor Pain ✝️
+# Nor Crying, Nor Pain 📜
 
 ### Project Description
 - A personal project on a 2D side-scroller puzzle game made using personally drawn assets and Godot Engine. It follows the story of a girl and a certain creature beside her bed that must be fed each night at certain specific time.
